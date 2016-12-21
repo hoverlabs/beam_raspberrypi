@@ -1,0 +1,46 @@
+<h1 id="beam_rpi">beam_rpi</h1>
+<p>Beam library for raspberry pi, porthed from original code by<br />
+<a href="http://www.hoverlabs.co">Hover Labs</a> by Ryan Shuttleworth, @rshuttle<script type="text/javascript">
+
+</script><noscript>&#114;&#x73;&#104;&#x75;&#116;&#116;&#108;&#x65;&#32;&#x61;&#116;&#32;&#x67;&#x6d;&#x61;&#x69;&#108;&#32;&#100;&#x6f;&#116;&#32;&#x63;&#x6f;&#x6d;</noscript></p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li><a href="https://github.com/WiringPi/WiringPi">WiringPi</a> must be installed</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p><code>sudo ./BeamDemo [options]</code></p>
+<p><strong>Options:</strong></p>
+<blockquote>
+<p><code>-n [1-4] set the number of beams (defaults to 1)</code><br />
+<code>-s [1-15] set the frame speed (defaults to 1, 15 is slowest)</code><br />
+<code>-l [1-7] set the number of frame loops (defaults to 7)</code><br />
+<code>-t &quot;some text&quot; display text on the beam</code><br />
+<code>-f &quot;some path&quot; load and display a frames file</code><br />
+<code>-h print this help</code></p>
+</blockquote>
+<p>To run a demo specify the -n [1-4] option or no options</p>
+<h2 id="examples">Examples</h2>
+<p><strong>Run Demo on 1 beam:</strong></p>
+<blockquote>
+<p><code>sudo ./BeamDemo</code></p>
+</blockquote>
+<p><strong>Run Demo on 2 beams:</strong></p>
+<blockquote>
+<p><code>sudo ./BeamDemo -n 2</code></p>
+</blockquote>
+<p><strong>Text on 1 beam:</strong></p>
+<blockquote>
+<p><code>sudo ./BeamDemo -t &quot;my text here&quot;</code></p>
+</blockquote>
+<p><strong>Text on 3 beams:</strong></p>
+<blockquote>
+<p><code>sudo ./BeamDemo -n 3 -t &quot;my text here&quot;</code></p>
+</blockquote>
+<p><strong>Custom frames:</strong></p>
+<blockquote>
+<p><code>sudo ./BeamDemo -f &quot;./sample-frames.txt&quot;</code></p>
+</blockquote>
+<p><strong>Custom frames on 3 beams:</strong></p>
+<blockquote>
+<p><code>sudo ./BeamDemo -n 3 -f &quot;./sample-frames.txt&quot;</code></p>
+</blockquote>

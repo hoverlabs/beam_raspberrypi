@@ -1,0 +1,86 @@
+NOTE: To compile programs with wiringPi, you need to add:
+    -lwiringPi
+  to your compile line(s) To use the Gertboard, MaxDetect, etc.
+  code (the devLib), you need to also add:
+    -lwiringPiDev
+  to your compile line(s).
+
+/*****************************************************************************/
+
+sudo i2cdetect -y 1
+
+uint8_t Beam::i2cwrite(uint8_t address, uint8_t cmdbyte, uint8_t databyte) {
+
+    Wire.beginTransmission(address);
+    Wire.write(cmdbyte);
+    Wire.write(databyte);
+    return (Wire.endTransmission());
+
+}
+
+uint8_t Beam::sendReadCmd(uint8_t addr, uint8_t ramsection, uint8_t subreg){
+
+  uint8_t c;
+  i2cwrite(addr, REGSEL, ramsection);
+
+  Wire.beginTransmission(addr);
+  Wire.write(subreg);
+  Wire.endTransmission();
+
+  Wire.requestFrom(addr, 1);
+  while(Wire.available())
+  {
+    c = Wire.read();
+    //Serial.println(c, HEX);
+    return c;
+  }
+}
+
+/*****************************************************************************/
+
+Serial.println(_currBeam, HEX);
+pinMode(_rst, OUTPUT);
+    digitalWrite(_rst, LOW);
+
+    Serial.println("clearing BEAMA");
+
+    delay()
+
+    pgm_read_byte_near
+
+    i2cwrite(addr, subreg, subregdata);
+
+
+    uint8_t Beam::sendReadCmd(uint8_t addr, uint8_t ramsection, uint8_t subreg){
+
+  uint8_t c;
+  i2cwrite(addr, REGSEL, ramsection);
+
+  Wire.beginTransmission(addr);
+  Wire.write(subreg);
+  Wire.endTransmission();
+
+  Wire.requestFrom(addr, 1);
+  while(Wire.available())
+  {
+    c = Wire.read();
+    //Serial.println(c, HEX);
+    return c;
+  }
+
+}
+
+uint8_t Beam::i2cwrite(uint8_t address, uint8_t cmdbyte, uint8_t databyte) {
+
+    Wire.beginTransmission(address);
+    Wire.write(cmdbyte);
+    Wire.write(databyte);
+    return (Wire.endTransmission());
+
+}
+
+// test edit
+
+/*****************************************************************************/
+
+pandoc -f markdown_github -t html README.md > README.html
